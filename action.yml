@@ -1,0 +1,14 @@
+name: 'ipynb2pdf'
+description: 'Convert Jupyter notebooks to PDF'
+inputs:
+  input_files:
+    description: 'Files to convert'
+    required: true
+outputs:
+  output_files:
+    description: 'Files converted'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.input_files }}
