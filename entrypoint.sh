@@ -6,7 +6,7 @@ output_files=""
 for notebook in "$@"; do
     notebook="/github/workspace/${notebook}"   # Prepend path
 
-    if jupyter-nbconvert --to pdf "${notebook}"; then
+    if sudo jupyter-nbconvert --to pdf "${notebook}"; then
         output_files+="${notebook/.ipynb/.pdf} "
     else    
         echo "${notebook} convertion fail"
