@@ -5,7 +5,7 @@ for notebook in $@; do
     notebook="/github/workspace/${notebook}"   # Prepend path
 
     echo "${notebook}: Converting"
-    if sudo jupyter-nbconvert --to=pdf "${notebook}"; then
+    if sudo /opt/conda/bin/jupyter-nbconvert --to=pdf "${notebook}"; then
         echo "${notebook}: Convertion OK"
         output_files+="${notebook/.ipynb/.pdf} "
     else    
