@@ -1,7 +1,7 @@
 #!/bin/bash
 
 output_files=""
-for notebook in "$@"; do
+for notebook in $@; do
     notebook="/github/workspace/${notebook}"   # Prepend path
 
     echo "${notebook}: Converting"
