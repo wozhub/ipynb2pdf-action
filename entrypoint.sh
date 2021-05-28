@@ -1,15 +1,15 @@
 #!/bin/bash
 
-ls -lR /github/workspace
-
 output_files=""
 for notebook in "$@"; do
     notebook="/github/workspace/${notebook}"   # Prepend path
 
+    echo "${notebook}: Converting"
     if sudo jupyter-nbconvert --to pdf "${notebook}"; then
+        echo "${notebook}: Convertion OK"
         output_files+="${notebook/.ipynb/.pdf} "
     else    
-        echo "${notebook} convertion fail"
+        echo "${notebook}: Convertion FAILED"
     fi
 
 done
